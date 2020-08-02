@@ -20,31 +20,16 @@ class FinishedViewController: UIViewController {
     
     @IBOutlet weak var ScoreLabel: UILabel!
     
+    // 最終得分顯示
     func setScore(){
         ScoreLabel.text = String(FinalScore)
     }
     
+    // 分享得分
     @IBAction func share(_ sender: Any) {
         let controller = UIActivityViewController(activityItems: ["我佇台羅小測驗得著\(FinalScore)分！"], applicationActivities: nil)
         present(controller, animated: true, completion: nil)
     }
     
-    
-    
-    
-    
-    // 算得分
-    // 重來，跳回第一頁
-    // 分享！“我佇台羅小測驗得著……分”
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

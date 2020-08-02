@@ -12,7 +12,7 @@ class QuizViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        QandAArray.shuffle()
+        QandAArray.shuffle() // 一開始就先打亂Array順序
         CurrentQandA = QandAArray[NumbersOfCurrentQandA]
         showQandA()
     }
@@ -32,6 +32,7 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var OptionCOutlet: UIButton!
     @IBOutlet weak var OptionDOutlet: UIButton!
     
+    // 問題跟答案的呈現
     func showQandA(){
         QuestionLabel.text = CurrentQandA.Question
         OptionAOutlet.setTitle(CurrentQandA.OptionA, for: .normal)
@@ -40,6 +41,7 @@ class QuizViewController: UIViewController {
         OptionDOutlet.setTitle(CurrentQandA.OptionD, for: .normal)
     }
     
+    // 點選答案後的動作
     @IBAction func clickonAnswer(_ sender: UIButton) {
         switch sender.tag {
         case 1:
@@ -61,13 +63,14 @@ class QuizViewController: UIViewController {
         }
     }
     
+    // 答案正確時的動作，顯示UIAlertController
     func doItRight(){
         let controller = UIAlertController(title: "無毋著！", message: "厲害喔！", preferredStyle: .alert)
         if NumbersOfCurrentQandA == 9{
-            let action = UIAlertAction(title: "完成！", style: .cancel, handler: nextPage)
+            let action = UIAlertAction(title: "完成！", style: .cancel, handler: nextPage) // 十題之後傳到下一頁
             controller.addAction(action)
         }else{
-            let action = UIAlertAction(title: "繼續", style: .cancel, handler: reloadPage)
+            let action = UIAlertAction(title: "繼續", style: .cancel, handler: reloadPage) // 還沒十題就進下一題
             controller.addAction(action)
         }
         
@@ -75,13 +78,14 @@ class QuizViewController: UIViewController {
         NumbersOfCorrect += 1
     }
     
+    // 答案錯誤時的動作，顯示UIAlertController
     func doItWrong(){
         let controller = UIAlertController(title: "毋著矣！", message: "哇……", preferredStyle: .alert)
         if NumbersOfCurrentQandA == 9{
-            let action = UIAlertAction(title: "完成！", style: .cancel, handler: nextPage)
+            let action = UIAlertAction(title: "完成！", style: .cancel, handler: nextPage) // 十題之後傳到下一頁
             controller.addAction(action)
         }else{
-            let action = UIAlertAction(title: "繼續", style: .cancel, handler: reloadPage)
+            let action = UIAlertAction(title: "繼續", style: .cancel, handler: reloadPage) // 還沒十題就進下一題
             controller.addAction(action)
         }
         
@@ -89,6 +93,7 @@ class QuizViewController: UIViewController {
         
     }
     
+    // 進下一題的動作
     func reloadPage (alert: UIAlertAction!){
         NumbersOfCurrentQandA += 1
         CurrentQandA = QandAArray[NumbersOfCurrentQandA]
@@ -96,12 +101,8 @@ class QuizViewController: UIViewController {
         NumbersOfQuestionsLabel.text = "第 \(NumbersOfCurrentQandA+1) 題"
     }
     
-//    @IBSegueAction func endQuizAction(_ coder: NSCoder) -> FinishedViewController? {
-//        let controller = FinishedViewController()
-//        controller.FinalScore = NumbersOfCorrect * 10
-//        return controller
-//    }
-    
+
+    // 先準備好下一頁的資料
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EndQuiz"{
             if let controller = segue.destination as? FinishedViewController{
@@ -110,27 +111,11 @@ class QuizViewController: UIViewController {
         }
     }
     
+    // 觸發到下一頁的segue
     func nextPage(alert: UIAlertAction!){
         performSegue(withIdentifier: "EndQuiz", sender: UIAlertAction.self)
         
-//        let segue = UIStoryboardSegue(identifier: "EndQuiz", source: self, destination: FinishedViewController())
-////        prepare(for: segue){
-    
-//        }
     }
     
-    //檢查是不是超過10題
-    //到第10題的話跳下一頁
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
