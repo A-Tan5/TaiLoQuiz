@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		DD59517E24D596B8002ED4EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59517D24D596B8002ED4EC /* AppDelegate.swift */; };
 		DD59518024D596B8002ED4EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59517F24D596B8002ED4EC /* SceneDelegate.swift */; };
-		DD59518224D596B8002ED4EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59518124D596B8002ED4EC /* ViewController.swift */; };
 		DD59518524D596B8002ED4EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD59518324D596B8002ED4EC /* Main.storyboard */; };
 		DD59518724D596BF002ED4EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD59518624D596BF002ED4EC /* Assets.xcassets */; };
 		DD59518A24D596BF002ED4EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD59518824D596BF002ED4EC /* LaunchScreen.storyboard */; };
+		DD59519224D5AC1C002ED4EC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59519124D5AC1C002ED4EC /* FirstViewController.swift */; };
+		DD59519424D5AC3B002ED4EC /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59519324D5AC3B002ED4EC /* QuizViewController.swift */; };
+		DD59519624D5AC56002ED4EC /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59519524D5AC56002ED4EC /* FinishedViewController.swift */; };
+		DD59519924D5ADB0002ED4EC /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59519824D5ADB0002ED4EC /* QuizModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DD59517A24D596B8002ED4EC /* TaiLoQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaiLoQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD59517D24D596B8002ED4EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD59517F24D596B8002ED4EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DD59518124D596B8002ED4EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DD59518424D596B8002ED4EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD59518624D596BF002ED4EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD59518924D596BF002ED4EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD59518B24D596BF002ED4EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD59519124D5AC1C002ED4EC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		DD59519324D5AC3B002ED4EC /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		DD59519524D5AC56002ED4EC /* FinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
+		DD59519824D5ADB0002ED4EC /* QuizModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,34 @@
 		DD59517C24D596B8002ED4EC /* TaiLoQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				DD59519A24D5ADBA002ED4EC /* Model */,
+				DD59519724D5AD79002ED4EC /* ViewController */,
 				DD59517D24D596B8002ED4EC /* AppDelegate.swift */,
-				DD59517F24D596B8002ED4EC /* SceneDelegate.swift */,
-				DD59518124D596B8002ED4EC /* ViewController.swift */,
 				DD59518324D596B8002ED4EC /* Main.storyboard */,
+				DD59517F24D596B8002ED4EC /* SceneDelegate.swift */,
 				DD59518624D596BF002ED4EC /* Assets.xcassets */,
 				DD59518824D596BF002ED4EC /* LaunchScreen.storyboard */,
 				DD59518B24D596BF002ED4EC /* Info.plist */,
 			);
 			path = TaiLoQuiz;
+			sourceTree = "<group>";
+		};
+		DD59519724D5AD79002ED4EC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DD59519124D5AC1C002ED4EC /* FirstViewController.swift */,
+				DD59519324D5AC3B002ED4EC /* QuizViewController.swift */,
+				DD59519524D5AC56002ED4EC /* FinishedViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DD59519A24D5ADBA002ED4EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD59519824D5ADB0002ED4EC /* QuizModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +163,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD59518224D596B8002ED4EC /* ViewController.swift in Sources */,
+				DD59519624D5AC56002ED4EC /* FinishedViewController.swift in Sources */,
+				DD59519424D5AC3B002ED4EC /* QuizViewController.swift in Sources */,
 				DD59517E24D596B8002ED4EC /* AppDelegate.swift in Sources */,
 				DD59518024D596B8002ED4EC /* SceneDelegate.swift in Sources */,
+				DD59519924D5ADB0002ED4EC /* QuizModel.swift in Sources */,
+				DD59519224D5AC1C002ED4EC /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
